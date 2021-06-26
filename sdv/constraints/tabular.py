@@ -232,11 +232,11 @@ class GreaterThan(Constraint):
             self._low_is_scalar = self._low not in table_data.columns
 
         if self._low_is_scalar:
-            self.constraint_columns = tuple(self._high)
+            self.constraint_columns = (self._high,)
             self._dtype = table_data[self._high].dtype
 
         if self._high_is_scalar:
-            self.constraint_columns = tuple(self._low)
+            self.constraint_columns = (self._low,)
             self._dtype = table_data[self._low].dtype
 
         if not self._low_is_scalar and not self._high_is_scalar:
